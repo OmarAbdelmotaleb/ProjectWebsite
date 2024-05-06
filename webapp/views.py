@@ -5,6 +5,10 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .models import ClickCount
 
+from django.views.decorators.cache import cache_page
+
+
+@cache_page(300)
 def index(request):
     if request.method == 'POST':  # If the button was clicked
         obj, created = ClickCount.objects.get_or_create(id=1)
