@@ -6,8 +6,9 @@ from django.shortcuts import render, redirect
 from .models import ClickCount
 
 from django.views.decorators.cache import cache_page
+from django.views.decorators.csrf import csrf_protect
 
-
+@csrf_protect
 @cache_page(300)
 def index(request):
     if request.method == 'POST':  # If the button was clicked
