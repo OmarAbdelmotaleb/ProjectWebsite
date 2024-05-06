@@ -14,4 +14,4 @@ def index(request):
 
     obj, created = ClickCount.objects.get_or_create(id=1)
     context = {'count': obj.count}
-    return render(request, 'counter/index.html', context)
+    return render(request, 'index.html', context)
