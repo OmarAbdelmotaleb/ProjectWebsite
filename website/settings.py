@@ -75,13 +75,22 @@ WSGI_APPLICATION = 'website.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',  # Replace with the name you set on RDS
+        'USER': 'masteromar',  # Replace with RDS master username 
+        'PASSWORD': 'password1',  # Replace with RDS master password
+        'HOST': 'clickcounterdb.cjc682sa26n0.us-east-1.rds.amazonaws.com',  # Find this in your RDS instance details
+        'PORT': '5432', 
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
