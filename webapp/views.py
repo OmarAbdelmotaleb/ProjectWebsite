@@ -8,8 +8,8 @@ from .models import ClickCount
 from django.views.decorators.cache import cache_page
 from django.views.decorators.csrf import csrf_protect
 
-@csrf_protect
-@cache_page(300)
+# @csrf_protect
+# @cache_page(300)
 def index(request):
     if request.method == 'POST':  # If the button was clicked
         obj, created = ClickCount.objects.get_or_create(id=1)
