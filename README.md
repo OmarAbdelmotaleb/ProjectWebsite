@@ -8,13 +8,11 @@ The tech stack for this project consists of Vercel for the online hosting, Amazo
 
 <img src="logos/vercel.png" alt="Vercel" width="300"/>
 
-<img src="logos/aws_rds.png" alt="AWS RDS" width="100"/>
-<img src="logos/postgresql.png" alt="PostgreSQL" width="100"/>
-<img src="logos/django.png" alt="Django" width="100"/>
+<img src="logos/aws_rds.png" alt="AWS RDS" width="100"/> <img src="logos/postgresql.png" alt="PostgreSQL" width="100"/> <img src="logos/django.png" alt="Django" width="100"/>
 
 
 
-# Basic Requirements
+# Application Requirements
 
 This project is designed to demonstrate the following core capabilities:
 
