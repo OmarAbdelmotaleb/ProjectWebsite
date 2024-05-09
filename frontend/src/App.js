@@ -14,7 +14,7 @@ function App() {
       if (isLoggedIn) { // Only fetch if logged in 
         if (isLoggedIn) { 
           try {
-            const response = await fetch('http://localhost:8000/api/users/me/'); // Assuming an endpoint to get the current user
+            const response = await fetch(`http://localhost:8000/api/users/${username}/`); // Assuming an endpoint to get the current user
             if (response.ok) {
               const data = await response.json();
               setCount(data.clicks);
@@ -32,12 +32,12 @@ function App() {
 
   const handleClick = async () => { 
     try {
-      const response = await fetch(`http://localhost:8000/api/update-clicks/`, { // Update clicks for the logged-in user 
-        method: 'POST',
+      const response = await fetch(`http://localhost:8000/api/users/${username}/`, { // Update clicks for the logged-in user 
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
-        }
-        // body: JSON.stringify({ clicks: count + 1 }) 
+        },
+        body: JSON.stringify({ clicks: count + 1 }) 
       });
 
       if (response.ok) {
@@ -55,33 +55,52 @@ function App() {
     e.preventDefault();
     // ... (add your fetch logic for '/api/login/')
     try {
-      const response = await fetch('http://localhost:8000/api/login/', {  
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
-      });
+      const checkUserResponse =  await fetch(`http://localhost:8000/api/users/${username}/`);
 
-      if (response.ok) {
-        setIsLoggedIn(true); 
-        setLoginError(false);
+      if (checkUserResponse.ok) {
+        // User exists, check password
+
+        const userData = await checkUserResponse.json();
+
+        if (userData.password === password) {
+          // Do the login
+          setIsLoggedIn(true);
+          setLoginError(false);
+          setCount(userData.clicks);
+        } else {
+          setLoginError(true); // Wrong password
+        }
       } else {
-        setLoginError(true);
+        // setLoginError(true); // User not found
+        const createUserResponse = await fetch(`http://localhost:8000/api/users/`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ username: username, password: password }) 
+        });
+
+        if (createUserResponse.ok) {
+          setIsLoggedIn(true);
+          setLoginError(false);
+        } else {
+          setLoginError(true);
+        }
       }
     } catch (error) {
-      console.error('Error logging in:', error);
+      console.error('Error:', error);
+      setLoginError(true); // Handle general errors
     }
   };
 
   return (
     <div className="container"> 
-      <div className="left-section">
+      <div className="top-half">
         <h1>Click Count: {count}</h1>
         <button onClick={handleClick} disabled={!isLoggedIn}>Click Me!</button> 
       </div>
 
-      <div className="right-section">
+      <div className="bottom-half">
         <h2>Login</h2>
         <form onSubmit={handleLogin}>
           <input 
