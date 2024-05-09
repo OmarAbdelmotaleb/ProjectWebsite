@@ -26,10 +26,11 @@ SECRET_KEY = 'django-insecure-c=$ri!b!gw-2ce3+bgxk7-(41)4nl40-de&$53+_t%=f6a93e2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'localhost']
 
 
 # Application definition
+# 'webpack_loader',
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -39,24 +40,36 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'webapp',
+    'rest_framework',
+    'corsheaders',
 ]
 
+# 'django.middleware.csrf.CsrfViewMiddleware',
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+]
+
+CORS_ORIGIN_WHITELIST = [  # Replace with your frontend's domain
+    'http://localhost:3000', 
+    # ... add more domains in production if needed
 ]
 
 ROOT_URLCONF = 'website.urls'
+# str(BASE_DIR.joinpath('templates'))
 
+# 'django.template.context_processors.csrf',
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'frontend/build')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -64,7 +77,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.csrf',
             ],
         },
     },
@@ -136,3 +148,17 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # CSRF_USE_SESSIONS = True
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'frontend/build/static'),
+)
+# 'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
+# WEBPACK_LOADER = {
+#     'DEFAULT': {
+#         'BUNDLE_DIR_NAME': 'webpack_bundles/',
+#         'CACHE': not DEBUG,
+#         'STATS_FILE': str(BASE_DIR.joinpath('frontend', 'webpack-stats.json')),
+#         'POLL_INTERVAL': 0.1,
+#         'IGNORE': [r'.+\.hot-update.js', r'.+\.map'],
+#     }
+# }

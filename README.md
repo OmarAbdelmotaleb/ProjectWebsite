@@ -33,7 +33,7 @@ Project Cloud Clicker completes these following requirements for the personaliza
 
 # Design Decisions
 
-I aimed to create a demonstration rather than a finished product. I decided the time should be spent on the functionality over aesthetics. The frontend would demonstrate a level of creativity and development knowledge, but focusing on the functionality means demonstrating the ability to build, deploy, and host a website in full, even if it looks a little ugly.
+I aimed to create a functional demonstration rather than a beautiful one. I decided the time should be spent on the functionality over aesthetics. The frontend would demonstrate a level of creativity and development knowledge, but focusing on the functionality means demonstrating the ability to build, deploy, and host a website in full, even if it looks a little ugly. That said, I went with ReactJS to at least have the basic functions down and can make simple, yet nice looking, tweaks to the page.
 
 # Deployment Instructions
 
