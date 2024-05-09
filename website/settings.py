@@ -31,7 +31,6 @@ ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'localhost', 'django-website-qkbcqx
 
 # Application definition
 # 'webpack_loader',
-# 'corsheaders',
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -42,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'webapp',
     'rest_framework',
+    'corsheaders',
 ]
 
 # 'django.middleware.csrf.CsrfViewMiddleware',
@@ -54,7 +54,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
 
 # CORS_ORIGIN_WHITELIST = [  # Replace with your frontend's domain
 #     'http://localhost:3000', 
