@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'localhost', 'django-website-qkbcqx
 
 # Application definition
 # 'webpack_loader',
+# 'corsheaders',
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -41,10 +42,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'webapp',
     'rest_framework',
-    'corsheaders',
 ]
 
 # 'django.middleware.csrf.CsrfViewMiddleware',
+
+# 'corsheaders.middleware.CorsMiddleware',
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -52,15 +54,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
 ]
 
-CORS_ORIGIN_WHITELIST = [  # Replace with your frontend's domain
-    'http://localhost:3000', 
-    'https://django-website-qkbcqxh0v-omars-projects-d249164c.vercel.app',
-    'https://cloud-clicker-react-app.vercel.app/'
-    # ... add more domains in production if needed
-]
+# CORS_ORIGIN_WHITELIST = [  # Replace with your frontend's domain
+#     'http://localhost:3000', 
+#     'https://django-website-qkbcqxh0v-omars-projects-d249164c.vercel.app',
+#     'https://cloud-clicker-react-app.vercel.app/'
+#     # ... add more domains in production if needed
+# ]
 
 ROOT_URLCONF = 'website.urls'
 # str(BASE_DIR.joinpath('templates'))
