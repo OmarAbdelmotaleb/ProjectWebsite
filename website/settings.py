@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-c=$ri!b!gw-2ce3+bgxk7-(41)4nl40-de&$53+_t%=f6a93e2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'localhost', 'django-website-qkbcqxh0v-omars-projects-d249164c.vercel.app']
 
 
 # Application definition
@@ -57,6 +57,7 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_WHITELIST = [  # Replace with your frontend's domain
     'http://localhost:3000', 
+    'https://django-website-qkbcqxh0v-omars-projects-d249164c.vercel.app',
     # ... add more domains in production if needed
 ]
 
