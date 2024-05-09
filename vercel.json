@@ -1,12 +1,13 @@
 {
+    "version": 3,
     "builds": [{
-        "src": "website/wsgi.py",
-        "use": "@vercel/python"
+        "src": "frontend",
+        "use": "@vercel/static"
     }],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "website/wsgi.py"
+        "dest": "frontend/public/index.html"
       }
     ]
 }
