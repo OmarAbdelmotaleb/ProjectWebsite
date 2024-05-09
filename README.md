@@ -6,16 +6,15 @@ Link to the main app on Vercel: https://cloud-clicker-react-app.vercel.app/
 
 Link to the backend on Vercel: https://django-website-ncl5b86k3-omars-projects-d249164c.vercel.app/ (nothing to see here, mainly to use for API calls and database management, backend stuff).
 
+Link to the frontend repository: https://github.com/OmarAbdelmotaleb/cloud-clicker-react-app
+
 # Tech Stack
 
 The tech stack for this project consists of Vercel for the online hosting, Amazon Relational Database Service for hosting the PostgreSQL database, and Django for the back-end of the website.
 
 <img src="logos/vercel.png" alt="Vercel" width="400"/>
 
-<img src="logos/aws_rds.png" alt="AWS RDS" width="100"/>
-<img src="logos/postgresql.png" alt="PostgreSQL" width="100"/>
-<img src="logos/django.png" alt="Django" width="100"/>
-<img src="logos/reactjs.png" alt="AWS RDS" width="100"/>
+<img src="logos/aws_rds.png" alt="AWS RDS" width="100"/> <img src="logos/postgresql.png" alt="PostgreSQL" width="100"/> <img src="logos/django.png" alt="Django" width="100"/> <img src="logos/reactjs.png" alt="AWS RDS" width="100"/>
 
 
 # Basic Requirements
