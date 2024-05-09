@@ -35,6 +35,15 @@ Project Cloud Clicker completes these following requirements for the personaliza
 - Create an authentication system where users have to login to press the button.
 - Uses ReactJS for the front end.
 
+# Specifications
+
+The frontend utilizes ReactJS on the latest version. This was built from scratch and deployed on Vercel using their create-react-app template. This serves as the main view for the user to interact with. 
+
+PostgreSQL operates as the persistent database using Amazon RDS free tier to host it.
+
+The backend utilizes Django and Python. I chose to use Django because it's familiar and offers extensive control with database updates, models, routing, and overall REST API functionality. The backend is hosted on a separate Vercel deployment and is called on by the frontend Vercel app for the REST functionality. All REST calls in Django are forwarded to the PostgreSQL database in the appropriate functions.
+
+
 # Design Decisions
 
 I aimed to create a functional demonstration rather than a beautiful one. I decided the time should be spent on the functionality over aesthetics. The frontend would demonstrate a level of creativity and development knowledge, but focusing on the functionality means demonstrating the ability to build, deploy, and host a website in full, even if it looks a little ugly. That said, I went with ReactJS to at least have the basic functions down and can make simple, yet nice looking, tweaks to the page.
